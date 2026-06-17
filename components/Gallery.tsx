@@ -41,8 +41,7 @@ export default function Gallery() {
               type="button"
               onClick={() => open(index)}
               initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.15 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
               className="group relative block w-full overflow-hidden rounded-2xl shadow-md ring-1 ring-charcoal/5"
             >

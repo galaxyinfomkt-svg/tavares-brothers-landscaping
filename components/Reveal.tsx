@@ -14,14 +14,15 @@ type RevealProps = {
   className?: string;
 };
 
+// Animates on mount (not scroll-gated) so content is always revealed,
+// even if a mobile browser's IntersectionObserver doesn't fire reliably.
 export default function Reveal({ children, delay = 0, className }: RevealProps) {
   return (
     <motion.div
       className={className}
       variants={variants}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.25 }}
+      animate="visible"
       transition={{ duration: 0.6, ease: 'easeOut', delay }}
     >
       {children}
