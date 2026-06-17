@@ -3,9 +3,11 @@
 import { motion, type Variants } from 'framer-motion';
 import type { ReactNode } from 'react';
 
+// No opacity:0 in the resting state — content is always visible (SSR included);
+// the slide is purely additive, so nothing can get stuck hidden on mobile.
 const variants: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { y: 24 },
+  visible: { y: 0 },
 };
 
 type RevealProps = {

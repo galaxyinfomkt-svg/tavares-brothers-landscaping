@@ -34,8 +34,8 @@ export default function Hero() {
         {/* Left: headline */}
         <div className="max-w-2xl">
           <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="inline-flex items-center gap-2 rounded-full border border-sage/40 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-sage backdrop-blur-sm"
           >
@@ -44,8 +44,8 @@ export default function Hero() {
           </motion.span>
 
           <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 24 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.7, ease: 'easeOut', delay: 0.12 }}
             className="mt-6 font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
           >
@@ -53,8 +53,8 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 24 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.7, ease: 'easeOut', delay: 0.24 }}
             className="mt-6 max-w-xl text-lg leading-relaxed text-cream/90 sm:text-xl"
           >
@@ -63,8 +63,8 @@ export default function Hero() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 24 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.7, ease: 'easeOut', delay: 0.36 }}
             className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center"
           >
@@ -79,8 +79,8 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ y: 10 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.7, delay: 0.55 }}
             className="mt-9 flex items-center gap-3 text-cream/85"
           >
@@ -97,8 +97,8 @@ export default function Hero() {
 
         {/* Right: quote form */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.3 }}
           className="rounded-3xl bg-white p-6 shadow-2xl shadow-black/40 sm:p-8"
         >

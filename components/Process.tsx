@@ -23,8 +23,8 @@ export default function Process() {
           {processSteps.map((step, i) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ y: 24 }}
+              animate={{ y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="relative rounded-2xl border border-charcoal/10 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-leaf hover:shadow-xl hover:shadow-leaf/10"
             >

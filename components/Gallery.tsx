@@ -40,8 +40,8 @@ export default function Gallery() {
               key={img.src}
               type="button"
               onClick={() => open(index)}
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ scale: 0.985 }}
+              animate={{ scale: 1 }}
               transition={{ duration: 0.4 }}
               className="group relative block w-full overflow-hidden rounded-2xl shadow-md ring-1 ring-charcoal/5"
             >
