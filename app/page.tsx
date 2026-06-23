@@ -8,6 +8,7 @@ import Gallery from '@/components/Gallery';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
 import Contact from '@/components/Contact';
+import ServiceAreas from '@/components/ServiceAreas';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
         <Testimonials />
         <FAQ />
         <Contact />
+        <ServiceAreas />
       </main>
       <Footer />
     </>
