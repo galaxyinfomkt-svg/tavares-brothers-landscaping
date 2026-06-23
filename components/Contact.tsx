@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Phone, Mail, MapPin, Globe } from 'lucide-react';
 import { business } from '@/lib/content';
 import Reveal from './Reveal';
-import QuoteForm from './QuoteForm';
+import GHLForm from './GHLForm';
 
 const contactInfo = [
   { icon: Phone, label: business.phone, href: business.phoneHref },
@@ -72,7 +72,7 @@ export default function Contact() {
         {/* Right: native form (Tavares green) */}
         <Reveal delay={0.1}>
           <div className="rounded-3xl bg-white p-7 shadow-2xl sm:p-9">
-            <QuoteForm title="Request Your Free Estimate" />
+            <GHLForm instanceId="contact" title="Request Your Free Estimate" />
           </div>
         </Reveal>
       </div>

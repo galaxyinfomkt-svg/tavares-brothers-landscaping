@@ -20,6 +20,22 @@ export const business = {
   since: 1994,
 };
 
+/**
+ * GoHighLevel / LeadConnector integration.
+ *
+ * `formId` is the ONLY thing needed to switch the site over to the native GHL
+ * embedded form. Paste the form ID below (or set NEXT_PUBLIC_GHL_FORM_ID in
+ * Vercel). While it is empty, <GHLForm> falls back to the built-in form so the
+ * site never ships a broken/empty iframe.
+ *
+ * Only the NATIVE embedded form (this iframe) lands in GHL → Submissions and
+ * fires "Form Submitted" workflows. Do NOT post leads via the Contacts API.
+ */
+export const ghl = {
+  formId: process.env.NEXT_PUBLIC_GHL_FORM_ID || 'kkLrqnIfvJY2bhGn1tXL',
+  chatWidgetId: '66b622dde70da55c517e7056',
+};
+
 export type Service = {
   icon: LucideIcon;
   title: string;

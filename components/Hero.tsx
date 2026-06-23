@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Phone, ImageIcon, ShieldCheck, Star } from 'lucide-react';
 import { business, wp } from '@/lib/content';
-import QuoteForm from './QuoteForm';
+import GHLForm from './GHLForm';
 
 export default function Hero() {
   return (
@@ -102,7 +102,7 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.3 }}
           className="rounded-3xl bg-white p-6 shadow-2xl shadow-black/40 sm:p-8"
         >
-          <QuoteForm title="Get a Free Estimate" />
+          <GHLForm instanceId="hero" title="Get a Free Estimate" />
         </motion.div>
       </div>
     </section>
