@@ -69,11 +69,9 @@ export default function Contact() {
           </ul>
         </Reveal>
 
-        {/* Right: native form (Tavares green) */}
+        {/* Right: native GHL form (transparent — no white card) */}
         <Reveal delay={0.1}>
-          <div className="rounded-3xl bg-white p-7 shadow-2xl sm:p-9">
-            <GHLForm instanceId="contact" title="Request Your Free Estimate" />
-          </div>
+          <GHLForm instanceId="contact" title="Request Your Free Estimate" />
         </Reveal>
       </div>
     </section>

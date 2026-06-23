@@ -21,18 +21,15 @@ type Props = {
  * Native GoHighLevel (LeadConnector) embedded form.
  *
  * This is the ONLY embed that lands in GHL → Submissions and fires the
- * "Form Submitted" workflow trigger (Email + SMS). The form fields — including
- * the "Select Service Needed" dropdown — are configured in GHL, not here.
- *
- * Anti-flicker strategy: the iframe is always mounted and fully opaque, with a
- * solid white "Loading form…" overlay ON TOP of it. The overlay is removed in a
- * single fade once the form has actually rendered — detected via the postMessage
- * the GHL embed script sends (with onLoad + timeout fallbacks). Because we never
- * toggle the iframe's own opacity, the form never "opens, reloads, opens again".
+ * "Form Submitted" workflow trigger (Email + SMS). ALL appearance (labels,
+ * placeholders, required asterisk, background, button color) is configured
+ * INSIDE the GHL form editor — the iframe is cross-origin and cannot be styled
+ * from here. The wrapper is intentionally transparent (no white card) so the
+ * fields sit directly on the section background.
  *
  * Until `ghl.formId` is set, it falls back to the built-in form.
  */
-export default function GHLForm({ instanceId, title, height = 492 }: Props) {
+export default function GHLForm({ instanceId, title, height = 600 }: Props) {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -51,7 +48,7 @@ export default function GHLForm({ instanceId, title, height = 492 }: Props) {
     };
     window.addEventListener('message', onMessage);
 
-    // Hard fallback so the overlay can never get stuck.
+    // Hard fallback so the spinner can never get stuck.
     const t = setTimeout(() => setReady(true), 6000);
 
     return () => {
@@ -68,15 +65,13 @@ export default function GHLForm({ instanceId, title, height = 492 }: Props) {
 
   return (
     <>
-      <div className="relative w-full" style={{ minHeight: `${height}px` }}>
+      <div
+        className="relative mx-auto w-full max-w-lg"
+        style={{ minHeight: `${height}px` }}
+      >
         <iframe
           src={`https://api.leadconnectorhq.com/widget/form/${ghl.formId}`}
-          style={{
-            width: '100%',
-            height: `${height}px`,
-            border: 'none',
-            borderRadius: '12px',
-          }}
+          style={{ width: '100%', height: `${height}px`, border: 'none' }}
           id={iframeId}
           data-layout='{"id":"INLINE"}'
           data-trigger-type="alwaysShow"
@@ -89,14 +84,14 @@ export default function GHLForm({ instanceId, title, height = 492 }: Props) {
           onLoad={() => setReady(true)}
         />
 
-        {/* Solid overlay — masks the iframe's internal loading, single fade-out. */}
+        {/* Transparent loading state — just a spinner, no white card. Fades
+            out once the form has painted. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-white text-charcoal/55 transition-opacity duration-500"
+          className="pointer-events-none absolute inset-0 flex items-center justify-center transition-opacity duration-500"
           style={{ opacity: ready ? 0 : 1 }}
         >
-          <Loader2 className="h-8 w-8 animate-spin text-leaf" />
-          <span className="text-sm font-medium">Loading form…</span>
+          <Loader2 className="h-8 w-8 animate-spin text-sage" />
         </div>
       </div>
 

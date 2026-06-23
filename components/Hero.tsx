@@ -95,12 +95,12 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right: quote form */}
+        {/* Right: native GHL form (transparent — no white card) */}
         <motion.div
           initial={{ y: 30 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.3 }}
-          className="rounded-3xl bg-white p-6 shadow-2xl shadow-black/40 sm:p-8"
+          className="w-full"
         >
           <GHLForm instanceId="hero" title="Get a Free Estimate" />
         </motion.div>
