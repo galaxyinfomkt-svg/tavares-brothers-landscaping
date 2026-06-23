@@ -70,7 +70,7 @@ export default function Contact() {
         </Reveal>
 
         {/* Right: native GHL form (transparent — no white card) */}
-        <Reveal delay={0.1}>
+        <Reveal delay={0.1} className="lg:self-center">
           <GHLForm instanceId="contact" title="Request Your Free Estimate" />
         </Reveal>
       </div>
