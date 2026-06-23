@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Playfair_Display, Inter } from 'next/font/google';
 import './globals.css';
 import FloatingCall from '@/components/FloatingCall';
+import ChatWidget from '@/components/ChatWidget';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -89,6 +90,7 @@ export default function RootLayout({
         />
         {children}
         <FloatingCall />
+        <ChatWidget />
       </body>
     </html>
   );

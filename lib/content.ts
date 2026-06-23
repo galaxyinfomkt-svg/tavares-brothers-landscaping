@@ -271,7 +271,298 @@ export const navLinks = [
   { label: 'Services', href: '/#services' },
   { label: 'Gallery', href: '/#gallery' },
   { label: 'Reviews', href: '/#reviews' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/#contact' },
+];
+
+export type PostBlock =
+  | { type: 'p'; text: string }
+  | { type: 'h2'; text: string }
+  | { type: 'ul'; items: string[] };
+
+export type Post = {
+  slug: string;
+  title: string;
+  category: string;
+  date: string; // ISO date
+  readTime: string;
+  excerpt: string;
+  image: string;
+  imageAlt: string;
+  content: PostBlock[];
+};
+
+// Practical landscaping advice for Massachusetts homeowners.
+export const posts: Post[] = [
+  {
+    slug: 'spring-cleanup-checklist-massachusetts-lawns',
+    title: 'Spring Cleanup Checklist for Massachusetts Lawns',
+    category: 'Seasonal',
+    date: '2026-04-08',
+    readTime: '6 min read',
+    excerpt:
+      'After a long New England winter, your yard needs more than a quick rake. Here is the exact checklist our crews use to wake up a lawn in Hudson, Sudbury, and Marlborough.',
+    image: wp('gl22646323800308'),
+    imageAlt: 'spring-cleanup-striped-green-lawn-hudson-massachusetts-tavares',
+    content: [
+      {
+        type: 'p',
+        text: 'Spring in Massachusetts is unforgiving on a lawn. Snow mold, matted leaves, broken branches, and compacted soil all show up at once the moment the snow melts. A proper spring cleanup is the single biggest thing you can do to set your property up for a healthy, green season.',
+      },
+      {
+        type: 'p',
+        text: 'Here is the checklist our crews work through on every spring cleanup in the Hudson area — in the order we actually do it.',
+      },
+      { type: 'h2', text: '1. Clear winter debris first' },
+      {
+        type: 'p',
+        text: 'Before anything else, we remove the leaves, sticks, and storm debris that piled up over winter. Leaving matted leaves on the grass blocks sunlight and traps moisture, which is exactly what snow mold and lawn disease need to spread.',
+      },
+      { type: 'h2', text: '2. Dethatch and gently rake' },
+      {
+        type: 'p',
+        text: 'A light dethatching rake lifts the dead grass layer that suffocates new growth. The goal is to open the lawn up so air, water, and fertilizer can reach the soil — not to tear the turf apart.',
+      },
+      { type: 'h2', text: '3. Clean up the beds and edges' },
+      {
+        type: 'ul',
+        items: [
+          'Cut back perennials and ornamental grasses left standing over winter',
+          'Pull early weeds before they seed',
+          'Re-cut crisp edges between lawn and beds',
+          'Refresh mulch to 2–3 inches to lock in moisture',
+        ],
+      },
+      { type: 'h2', text: '4. Feed and overseed thin spots' },
+      {
+        type: 'p',
+        text: 'Early spring is the right window to apply a balanced fertilizer and overseed the thin or bare patches that winter created. Seed needs soil contact and consistent moisture, so this step always comes after the lawn has been cleared and raked.',
+      },
+      { type: 'h2', text: 'Want it done right the first time?' },
+      {
+        type: 'p',
+        text: 'A spring cleanup is physical, time-consuming work — and the order matters. Tavares Brothers has been waking up lawns across Hudson, Sudbury, and Marlborough since 1994. Call us for a free estimate and we will get your property ready for the season.',
+      },
+    ],
+  },
+  {
+    slug: 'how-often-mow-lawn-new-england',
+    title: 'How Often Should You Mow Your Lawn in New England?',
+    category: 'Lawn Care',
+    date: '2026-05-20',
+    readTime: '5 min read',
+    excerpt:
+      'Mowing on a calendar instead of by the grass is one of the most common lawn mistakes we see. Here is how often to actually mow through a Massachusetts season.',
+    image:
+      'https://images.pexels.com/photos/12087398/pexels-photo-12087398.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    imageAlt: 'mowing-green-lawn-mower-stripes-hudson-massachusetts',
+    content: [
+      {
+        type: 'p',
+        text: 'Most homeowners mow on a fixed schedule — every Saturday, rain or shine. But grass does not grow on a calendar. It grows based on temperature, rain, and the time of year, and in New England that changes a lot from April to October.',
+      },
+      { type: 'h2', text: 'The one-third rule' },
+      {
+        type: 'p',
+        text: 'Never cut more than one-third of the grass blade in a single mow. Removing more shocks the plant, weakens the roots, and invites weeds and drought stress. If the grass got long, bring it down over two mows a few days apart instead of scalping it once.',
+      },
+      { type: 'h2', text: 'How often, season by season' },
+      {
+        type: 'ul',
+        items: [
+          'Spring (peak growth): every 5–7 days',
+          'Early summer: about every 7 days',
+          'Mid-summer heat / drought: every 10–14 days, or pause if dormant',
+          'Fall: back to every 7–10 days as growth picks up again',
+        ],
+      },
+      { type: 'h2', text: 'Mowing height matters more than frequency' },
+      {
+        type: 'p',
+        text: 'For most New England lawns, keep the mower at 3 to 3.5 inches. Taller grass shades the soil, holds moisture, and chokes out crabgrass. Cutting too short is the fastest way to a brown, weedy lawn by July.',
+      },
+      { type: 'h2', text: 'Let us keep it on schedule' },
+      {
+        type: 'p',
+        text: 'Our weekly and bi-weekly maintenance crews mow by the grass, not the calendar — adjusting height and timing as the season changes. Reach out for a free estimate on a maintenance program that fits your property.',
+      },
+    ],
+  },
+  {
+    slug: 'best-time-plant-flowers-hudson-ma',
+    title: 'The Best Time to Plant Flowers in Hudson, MA',
+    category: 'Gardening',
+    date: '2026-05-02',
+    readTime: '5 min read',
+    excerpt:
+      'Plant too early and a late frost wipes out your annuals. Here is how we time flower and garden installations in the Hudson, MA climate.',
+    image: wp('gl21513931495567'),
+    imageAlt: 'planting-flowers-garden-bed-worker-hudson-massachusetts-tavares',
+    content: [
+      {
+        type: 'p',
+        text: 'Hudson sits in USDA hardiness zone 6a, which means our last spring frost typically lands in late April to mid-May. That single date drives almost every planting decision in the garden.',
+      },
+      { type: 'h2', text: 'Annuals: wait for the frost to pass' },
+      {
+        type: 'p',
+        text: 'Tender annuals like impatiens, petunias, and begonias have no frost tolerance. Plant them after mid-May once nighttime temperatures stay reliably above 50°F. Planting earlier just to get color is a gamble that a single cold night can erase.',
+      },
+      { type: 'h2', text: 'Perennials and shrubs: spring or fall' },
+      {
+        type: 'p',
+        text: 'Perennials, trees, and shrubs are best planted in spring or early fall, when cooler temperatures and steady moisture let roots establish without heat stress. Avoid planting them in the peak of summer if you can.',
+      },
+      { type: 'h2', text: 'Quick timing guide' },
+      {
+        type: 'ul',
+        items: [
+          'Cool-season pansies & violas: April',
+          'Perennials, shrubs, trees: late April–May or September',
+          'Tender annuals: after mid-May',
+          'Fall mums: September for late-season color',
+        ],
+      },
+      { type: 'h2', text: 'Beautiful beds, perfectly timed' },
+      {
+        type: 'p',
+        text: 'We design, plant, and maintain flower beds that bloom all season — with the right plants chosen for your soil, light, and style. Get in touch for a free estimate on a garden refresh.',
+      },
+    ],
+  },
+  {
+    slug: 'mulch-101-how-much-what-type-when',
+    title: 'Mulch 101: How Much, What Type, and When to Apply',
+    category: 'Tips',
+    date: '2026-04-22',
+    readTime: '6 min read',
+    excerpt:
+      'Mulch does far more than look tidy. Get the depth and timing wrong, though, and you can smother the plants you are trying to protect.',
+    image: wp('gl22386899572163'),
+    imageAlt: 'fresh-mulch-bed-edging-around-tree-hudson-massachusetts-tavares',
+    content: [
+      {
+        type: 'p',
+        text: 'Mulch is one of the most cost-effective things you can do for a landscape. Done right, it locks in moisture, suppresses weeds, regulates soil temperature, and gives beds a clean, finished look. Done wrong, it can rot stems and starve roots of oxygen.',
+      },
+      { type: 'h2', text: 'How much mulch is enough?' },
+      {
+        type: 'p',
+        text: 'Aim for 2 to 3 inches of mulch. Less than that and weeds push through; more than that and water struggles to reach the soil. Each spring you usually only need to top off the existing layer back to that depth — not bury it under a fresh full load every year.',
+      },
+      { type: 'h2', text: 'Avoid the "mulch volcano"' },
+      {
+        type: 'p',
+        text: 'Never pile mulch up against tree trunks or plant stems. Those cone-shaped "volcanoes" trap moisture against the bark, invite rot and pests, and slowly kill the tree. Pull mulch back a few inches from the base so the trunk can breathe.',
+      },
+      { type: 'h2', text: 'What type should you use?' },
+      {
+        type: 'ul',
+        items: [
+          'Shredded hardwood: classic, knits together, great for slopes',
+          'Bark mulch: longer-lasting, slower to break down',
+          'Pine straw: light and acidic, good around evergreens',
+          'Avoid dyed mulch near vegetable and edible beds',
+        ],
+      },
+      { type: 'h2', text: 'When to mulch' },
+      {
+        type: 'p',
+        text: 'Mid-to-late spring is ideal — after the soil has warmed and you have cleaned up the beds, but before summer weeds take hold. A second light refresh in fall can protect roots through winter.',
+      },
+      { type: 'h2', text: 'Leave the heavy lifting to us' },
+      {
+        type: 'p',
+        text: 'We deliver and install quality mulch with crisp, hand-cut edges across the Hudson area every spring. Contact us for a free estimate on your beds.',
+      },
+    ],
+  },
+  {
+    slug: 'why-lawn-turns-brown-summer',
+    title: 'Why Your Lawn Turns Brown in Summer (and How to Fix It)',
+    category: 'Lawn Care',
+    date: '2026-06-12',
+    readTime: '6 min read',
+    excerpt:
+      'A brown lawn in July is not always dead. Knowing the difference between dormancy, drought, and disease tells you whether to water, wait, or call for help.',
+    image: wp('gl22263179419913'),
+    imageAlt: 'green-and-brown-summer-lawn-shrubs-sudbury-massachusetts-tavares',
+    content: [
+      {
+        type: 'p',
+        text: 'Every summer we get the same call: "My whole lawn went brown — is it dead?" Usually the answer is no. Cool-season grasses like the fescues and bluegrass common in Massachusetts naturally go dormant in heat. But brown can also mean a real problem, so it pays to know the difference.',
+      },
+      { type: 'h2', text: 'Dormancy vs. dead' },
+      {
+        type: 'p',
+        text: 'Dormant grass browns evenly across the lawn and bounces back when cooler, wetter weather returns. Dead grass shows up in irregular patches that do not recover. A simple test: tug a handful of brown grass. If it resists, the crown is alive and dormant. If it pulls out easily, that area is gone.',
+      },
+      { type: 'h2', text: 'Common causes of summer browning' },
+      {
+        type: 'ul',
+        items: [
+          'Heat dormancy — normal, and recovers on its own',
+          'Drought stress — needs deep, infrequent watering',
+          'Cutting too short — scalped grass burns fast',
+          'Grubs — turf lifts like a loose carpet',
+          'Fungal disease — spreads in circles or patches',
+        ],
+      },
+      { type: 'h2', text: 'How to water through a heat wave' },
+      {
+        type: 'p',
+        text: 'If you choose to keep the lawn green, water deeply once or twice a week in the early morning — about an inch total. Light daily sprinkles encourage shallow roots and make things worse. If you would rather let it go dormant, just keep foot traffic off it and it will green up later.',
+      },
+      { type: 'h2', text: 'Not sure what you are looking at?' },
+      {
+        type: 'p',
+        text: 'Grubs and disease need to be caught early. If your brown patches are spreading or the turf is lifting, give us a call — we will diagnose it and put a recovery plan in place.',
+      },
+    ],
+  },
+  {
+    slug: 'fall-lawn-care-massachusetts-winter',
+    title: 'Fall Lawn Care: Preparing Your Yard for a Massachusetts Winter',
+    category: 'Seasonal',
+    date: '2026-09-30',
+    readTime: '5 min read',
+    excerpt:
+      'What you do in October decides how your lawn looks next May. Fall is the most important — and most overlooked — season for New England lawns.',
+    image: wp('gl21690601591927'),
+    imageAlt: 'fall-leaf-cleanup-flower-bed-marlborough-massachusetts-tavares',
+    content: [
+      {
+        type: 'p',
+        text: 'Most people stop thinking about their lawn after Labor Day. But in New England, fall is when the real work happens. Cool nights and warm soil make autumn the best time to repair summer damage and build the strong roots that survive a Massachusetts winter.',
+      },
+      { type: 'h2', text: 'Keep mowing — then lower it at the end' },
+      {
+        type: 'p',
+        text: 'Keep mowing as long as the grass is growing. For the final cut of the season, drop the height slightly to about 2.5 inches. Long grass left over winter mats down and becomes a breeding ground for snow mold.',
+      },
+      { type: 'h2', text: 'Do not let the leaves sit' },
+      {
+        type: 'p',
+        text: 'A thick blanket of wet leaves blocks light and suffocates the lawn over winter. Stay on top of leaf cleanup through the fall rather than waiting for one massive pile in November.',
+      },
+      { type: 'h2', text: 'Your fall checklist' },
+      {
+        type: 'ul',
+        items: [
+          'Aerate compacted soil to relieve a summer of foot traffic',
+          'Overseed thin areas while the soil is still warm',
+          'Apply a fall fertilizer to feed the roots',
+          'Keep up with leaf cleanup, not one final dump',
+          'Cut back perennials and protect tender plantings',
+        ],
+      },
+      { type: 'h2', text: 'Set next spring up now' },
+      {
+        type: 'p',
+        text: 'A strong fall program is the difference between a patchy lawn and a lush one next May. Our crews handle aeration, overseeding, fertilizing, and full fall cleanups across Hudson, Sudbury, and Marlborough. Call for a free estimate before the season closes.',
+      },
+    ],
+  },
 ];
 
 export type ProcessStep = {
