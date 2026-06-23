@@ -83,6 +83,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+      <head>
+        {/* Warm up the GoHighLevel form connections so the embedded form
+            paints as fast as possible. */}
+        <link rel="preconnect" href="https://api.leadconnectorhq.com" />
+        <link rel="preconnect" href="https://link.msgsndr.com" />
+        <link rel="dns-prefetch" href="https://api.leadconnectorhq.com" />
+        <link rel="dns-prefetch" href="https://link.msgsndr.com" />
+        <link rel="dns-prefetch" href="https://widgets.leadconnectorhq.com" />
+      </head>
       <body>
         <script
           type="application/ld+json"

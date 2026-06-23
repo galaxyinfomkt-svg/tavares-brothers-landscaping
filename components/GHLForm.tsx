@@ -85,8 +85,8 @@ export default function GHLForm({ instanceId, title, height = 492 }: Props) {
           data-layout-iframe-id={iframeId}
           data-form-id={ghl.formId}
           title={`${business.name} - Free Estimate`}
-          // Give the form a moment to paint after the doc loads, then reveal.
-          onLoad={() => setTimeout(() => setReady(true), 1200)}
+          loading="eager"
+          onLoad={() => setReady(true)}
         />
 
         {/* Solid overlay — masks the iframe's internal loading, single fade-out. */}
@@ -100,12 +100,13 @@ export default function GHLForm({ instanceId, title, height = 492 }: Props) {
         </div>
       </div>
 
-      {/* Auto-resize script — next/script dedupes by id, so it loads once even
-          with multiple GHLForm instances on the page. */}
+      {/* Auto-resize script — afterInteractive so it loads early and the form
+          paints fast. next/script dedupes by id, so it loads once even with
+          multiple GHLForm instances on the page. */}
       <Script
         id="ghl-form-embed"
         src="https://link.msgsndr.com/js/form_embed.js"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
       />
     </>
   );
