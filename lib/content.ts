@@ -287,6 +287,7 @@ export const navLinks = [
   { label: 'Services', href: '/#services' },
   { label: 'Gallery', href: '/#gallery' },
   { label: 'Reviews', href: '/#reviews' },
+  { label: 'Areas', href: '/service-areas' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/#contact' },
 ];
