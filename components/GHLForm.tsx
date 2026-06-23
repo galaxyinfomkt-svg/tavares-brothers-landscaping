@@ -22,23 +22,42 @@ type Props = {
  *
  * This is the ONLY embed that lands in GHL → Submissions and fires the
  * "Form Submitted" workflow trigger (Email + SMS). The form fields — including
- * the "Select Service Needed" dropdown — are configured in GHL, not here, so
- * the live form updates without a redeploy.
+ * the "Select Service Needed" dropdown — are configured in GHL, not here.
  *
- * While the iframe loads we show a branded spinner and keep the iframe at
- * opacity 0, so the empty white card never flashes before the form paints.
+ * Anti-flicker strategy: the iframe is always mounted and fully opaque, with a
+ * solid white "Loading form…" overlay ON TOP of it. The overlay is removed in a
+ * single fade once the form has actually rendered — detected via the postMessage
+ * the GHL embed script sends (with onLoad + timeout fallbacks). Because we never
+ * toggle the iframe's own opacity, the form never "opens, reloads, opens again".
  *
- * Until `ghl.formId` is set, it falls back to the built-in form so the site is
- * never shipped with an empty iframe.
+ * Until `ghl.formId` is set, it falls back to the built-in form.
  */
 export default function GHLForm({ instanceId, title, height = 492 }: Props) {
-  const [loaded, setLoaded] = useState(false);
+  const [ready, setReady] = useState(false);
 
-  // Safety net: reveal the form even if the iframe's onLoad never fires.
   useEffect(() => {
     if (!ghl.formId) return;
-    const t = setTimeout(() => setLoaded(true), 6000);
-    return () => clearTimeout(t);
+
+    // The GHL embed script posts messages (resize/ready) from its iframe once
+    // the form is laid out — the most reliable "form has painted" signal.
+    const onMessage = (e: MessageEvent) => {
+      const origin = typeof e.origin === 'string' ? e.origin : '';
+      if (
+        origin.includes('leadconnectorhq.com') ||
+        origin.includes('msgsndr.com')
+      ) {
+        setReady(true);
+      }
+    };
+    window.addEventListener('message', onMessage);
+
+    // Hard fallback so the overlay can never get stuck.
+    const t = setTimeout(() => setReady(true), 6000);
+
+    return () => {
+      window.removeEventListener('message', onMessage);
+      clearTimeout(t);
+    };
   }, []);
 
   if (!ghl.formId) {
@@ -50,12 +69,6 @@ export default function GHLForm({ instanceId, title, height = 492 }: Props) {
   return (
     <>
       <div className="relative w-full" style={{ minHeight: `${height}px` }}>
-        {!loaded && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-charcoal/55">
-            <Loader2 className="h-8 w-8 animate-spin text-leaf" />
-            <span className="text-sm font-medium">Loading form…</span>
-          </div>
-        )}
         <iframe
           src={`https://api.leadconnectorhq.com/widget/form/${ghl.formId}`}
           style={{
@@ -63,8 +76,6 @@ export default function GHLForm({ instanceId, title, height = 492 }: Props) {
             height: `${height}px`,
             border: 'none',
             borderRadius: '12px',
-            opacity: loaded ? 1 : 0,
-            transition: 'opacity 0.35s ease',
           }}
           id={iframeId}
           data-layout='{"id":"INLINE"}'
@@ -74,9 +85,21 @@ export default function GHLForm({ instanceId, title, height = 492 }: Props) {
           data-layout-iframe-id={iframeId}
           data-form-id={ghl.formId}
           title={`${business.name} - Free Estimate`}
-          onLoad={() => setLoaded(true)}
+          // Give the form a moment to paint after the doc loads, then reveal.
+          onLoad={() => setTimeout(() => setReady(true), 1200)}
         />
+
+        {/* Solid overlay — masks the iframe's internal loading, single fade-out. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-white text-charcoal/55 transition-opacity duration-500"
+          style={{ opacity: ready ? 0 : 1 }}
+        >
+          <Loader2 className="h-8 w-8 animate-spin text-leaf" />
+          <span className="text-sm font-medium">Loading form…</span>
+        </div>
       </div>
+
       {/* Auto-resize script — next/script dedupes by id, so it loads once even
           with multiple GHLForm instances on the page. */}
       <Script
