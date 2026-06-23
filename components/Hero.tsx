@@ -100,7 +100,7 @@ export default function Hero() {
           initial={{ y: 30 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.3 }}
-          className="w-full"
+          className="w-full lg:mt-24"
         >
           <GHLForm instanceId="hero" title="Get a Free Estimate" />
         </motion.div>
