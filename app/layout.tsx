@@ -51,6 +51,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.tavareslandscape.com',
   },
+  verification: {
+    google: 'Hh-b6I8dZzgbTUHk_sdnYxFynoIbzH6g4o4W41k9z9M',
+  },
 };
 
 const businessSchema = {
