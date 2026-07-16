@@ -2,10 +2,16 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { gallery } from '@/lib/content';
 import Reveal from './Reveal';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export default function Gallery() {
   const [lightbox, setLightbox] = useState<number | null>(null);
@@ -33,29 +39,41 @@ export default function Gallery() {
           </p>
         </Reveal>
 
-        {/* Masonry-style grid */}
-        <div className="mt-12 columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5">
-          {gallery.map((img, index) => (
-            <motion.button
-              key={img.src}
-              type="button"
-              onClick={() => open(index)}
-              initial={{ scale: 0.985 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.4 }}
-              className="group relative block w-full overflow-hidden rounded-2xl shadow-md ring-1 ring-charcoal/5"
-            >
-              <Image
-                src={img.src}
-                alt={img.alt.replace(/-/g, ' ')}
-                width={800}
-                height={600}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <span className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/15" />
-            </motion.button>
-          ))}
+        {/* Portfolio slider */}
+        <div className="mt-12 px-1 pb-14 sm:px-10">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3500, disableOnInteraction: false }}
+            loop
+            spaceBetween={20}
+            breakpoints={{
+              0: { slidesPerView: 1 },
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+          >
+            {gallery.map((img, index) => (
+              <SwiperSlide key={img.src}>
+                <button
+                  type="button"
+                  onClick={() => open(index)}
+                  aria-label={`Open photo: ${img.alt.replace(/-/g, ' ')}`}
+                  className="group relative block aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-md ring-1 ring-charcoal/5"
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt.replace(/-/g, ' ')}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute inset-0 bg-charcoal/0 transition-colors duration-300 group-hover:bg-charcoal/15" />
+                </button>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
 
