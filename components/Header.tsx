@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Menu, X, Phone, ChevronDown, ArrowRight } from 'lucide-react';
+import { Menu, X, Phone, Mail, ChevronDown, ArrowRight } from 'lucide-react';
 import { business, navLinks, services } from '@/lib/content';
 
 export default function Header() {
@@ -36,6 +36,27 @@ export default function Header() {
         scrolled ? 'bg-charcoal/90 shadow-lg shadow-black/20' : 'bg-charcoal/75'
       }`}
     >
+      {/* Utility bar — email and phone above the nav. Without it the email
+          lived only in the footer, which a phone visitor rarely reaches. */}
+      <div className="border-b border-white/10 bg-charcoal">
+        <div className="container-px flex h-9 items-center justify-between gap-3 text-[11px] sm:text-xs">
+          <a
+            href={`mailto:${business.email}`}
+            className="flex items-center gap-1.5 whitespace-nowrap text-white/80 transition-colors hover:text-white"
+          >
+            <Mail className="h-3.5 w-3.5 shrink-0" />
+            {business.email}
+          </a>
+          <a
+            href={business.phoneHref}
+            className="flex items-center gap-1.5 whitespace-nowrap font-semibold text-white transition-colors hover:text-white/80"
+          >
+            <Phone className="h-3.5 w-3.5 shrink-0" />
+            {business.phone}
+          </a>
+        </div>
+      </div>
+
       <div className="container-px flex h-20 items-center justify-between">
         <a
           href="/#home"

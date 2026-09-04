@@ -10,6 +10,7 @@ import FAQ from '@/components/FAQ';
 import Contact from '@/components/Contact';
 import ServiceAreas from '@/components/ServiceAreas';
 import Footer from '@/components/Footer';
+import CtaBand from '@/components/CtaBand';
 
 export default function Home() {
   return (
@@ -20,8 +21,17 @@ export default function Home() {
         <Stats />
         <About />
         <Services />
+        <CtaBand
+          heading="Ready for your free estimate?"
+          sub="Tell us about your property and we will come take a look — no cost, no obligation."
+        />
         <Process />
         <Gallery />
+        <CtaBand
+          tone="dark"
+          heading="Want your yard to look like this?"
+          sub="Serving Massachusetts homeowners. Same-week visits on most jobs."
+        />
         <Testimonials />
         <FAQ />
         <Contact />
