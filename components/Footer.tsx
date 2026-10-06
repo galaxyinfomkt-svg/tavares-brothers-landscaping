@@ -1,8 +1,15 @@
 'use client';
 
 import Image from 'next/image';
-import { Facebook, Phone, Mail, MapPin } from 'lucide-react';
-import { business, navLinks } from '@/lib/content';
+import {
+  Facebook,
+  Phone,
+  Mail,
+  MapPin,
+  Flower2,
+  ExternalLink,
+} from 'lucide-react';
+import { business, navLinks, partner } from '@/lib/content';
 
 export default function Footer() {
   return (
@@ -86,7 +93,26 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-cream/55 sm:flex-row">
+        <div className="mt-12 border-t border-white/10 pt-6">
+          <a
+            href={partner.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col items-center gap-1 text-center text-sm sm:flex-row sm:justify-center sm:gap-2"
+          >
+            <span className="flex items-center gap-2 text-cream/55">
+              <Flower2 className="h-4 w-4 text-sage" />
+              Our partner:
+            </span>
+            <span className="font-semibold text-cream transition-colors group-hover:text-sage">
+              {partner.name}
+              <ExternalLink className="ml-1.5 inline h-3.5 w-3.5 align-[-1px]" />
+            </span>
+            <span className="text-cream/55">— {partner.tagline}</span>
+          </a>
+        </div>
+
+        <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-cream/55 sm:flex-row">
           <p>
             © {new Date().getFullYear()} Tavares Brothers Landscaping. All
             rights reserved.

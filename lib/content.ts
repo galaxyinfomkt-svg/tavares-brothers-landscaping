@@ -32,6 +32,17 @@ export const business = {
  * Only the NATIVE embedded form (this iframe) lands in GHL → Submissions and
  * fires "Form Submitted" workflows. Do NOT post leads via the Contacts API.
  */
+/**
+ * Family-run florist in the same MetroWest towns — linked from the footer as a
+ * partner so landscaping visitors discover the shop. Separate business, so it
+ * gets a link out, not a page of its own here.
+ */
+export const partner = {
+  name: 'Tavares Flower House',
+  url: 'https://tavaresflowerhouse.com/',
+  tagline: 'Fresh, handcrafted flowers for life’s special days',
+};
+
 export const ghl = {
   formId: process.env.NEXT_PUBLIC_GHL_FORM_ID || 'kkLrqnIfvJY2bhGn1tXL',
   chatWidgetId: '66b622dde70da55c517e7056',
