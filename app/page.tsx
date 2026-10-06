@@ -11,6 +11,7 @@ import Contact from '@/components/Contact';
 import ServiceAreas from '@/components/ServiceAreas';
 import Footer from '@/components/Footer';
 import CtaBand from '@/components/CtaBand';
+import PartnerBand from '@/components/PartnerBand';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <main>
         <Hero />
         <Stats />
+        <PartnerBand />
         <About />
         <Services />
         <CtaBand
