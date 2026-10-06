@@ -3,6 +3,7 @@ import {
   Flower2,
   Building2,
   Home,
+  Flame,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -143,6 +144,29 @@ export const services: Service[] = [
       'Seasonal color and bed maintenance',
       'Reliable, professional crews',
       'Single point of contact, fast response',
+    ],
+  },
+  {
+    icon: Flame,
+    title: 'Seasoned Firewood',
+    slug: 'firewood-delivery',
+    description:
+      'Seasoned hardwood, split and ready to burn, delivered straight to your door.',
+    image:
+      'https://images.pexels.com/photos/4148362/pexels-photo-4148362.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    imagePosition: 'center',
+    imageAlt: 'seasoned-split-hardwood-firewood-delivery-hudson-massachusetts-tavares',
+    tagline: 'Seasoned firewood, ready to be delivered.',
+    intro: [
+      'Seasoned hardwood, split and stacked to dry, delivered to homes around Hudson, MA. It lights easily and burns hot and clean — none of the hissing and smoking you get from green wood that was cut too recently.',
+      'Order a full cord or a half cord, have it dropped where you want it, and we can stack the pile for you if you would rather not. Running low in the middle of winter? Call and we bring another load before the next cold stretch.',
+    ],
+    features: [
+      'Seasoned hardwood — oak, maple, ash and birch',
+      'Full and half-cord deliveries',
+      'Honest measure, no short loads',
+      'Dropped where you want it, stacking on request',
+      'Local wood, cut near where you burn it',
     ],
   },
 ];

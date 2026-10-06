@@ -273,6 +273,18 @@ const pexelsLawn =
 const pexelsCommercial =
   'https://images.pexels.com/photos/32575068/pexels-photo-32575068.jpeg?auto=compress&cs=tinysrgb&w=1600';
 
+// Firewood has no equivalent in the Tavares project gallery (all landscaping
+// work), so this service uses its own stock pool rather than a misleading
+// mulch/bed photo.
+const pexelsFirewood = (id: number) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=1600`;
+const FW = {
+  splitStack: pexelsFirewood(4148362),
+  stackedWall: pexelsFirewood(3750773),
+  againstHouse: pexelsFirewood(14791984),
+  seasonedEnds: pexelsFirewood(11285636),
+};
+
 // Real Tavares project photos (from their original gallery) reused as pools.
 const G = {
   stripedLawn: wp('gl22646323800308', 1600, 1066),
@@ -594,6 +606,51 @@ export const SERVICES: SeoService[] = [
       { q: 'How much mulch do beds need?', a: 'We install mulch about 2–3 inches deep — enough to suppress weeds and hold moisture without smothering roots.' },
       { q: 'How often should mulch be refreshed?', a: 'Most properties benefit from a fresh top-off each spring, with an optional light refresh in fall.' },
       { q: 'Do you offer decorative stone too?', a: 'Yes — alongside hardwood and bark mulch we can install decorative stone where it fits the design.' },
+    ],
+  },
+  {
+    name: 'Seasoned Firewood',
+    shortName: 'Firewood Delivery',
+    slug: 'firewood-delivery',
+    category: 'seasoned firewood delivery',
+    description:
+      'Seasoned hardwood, split and ready to burn, delivered straight to your door.',
+    images: [FW.splitStack, FW.stackedWall, FW.againstHouse, FW.seasonedEnds],
+    idealFor:
+      'homeowners with a wood stove, fireplace or fire pit who want dry hardwood on hand before the cold sets in',
+    painPoints: [
+      'Green wood that hisses, smokes and never really catches.',
+      'Running out in January and scrambling for a load during a cold snap.',
+      '“Cords” that arrive well short of a real 128 cubic feet.',
+      'Hauling and stacking it yourself, one carload at a time.',
+    ],
+    benefits: [
+      'Properly seasoned hardwood — split and dried, not green',
+      'Honest measure you can stack and check yourself',
+      'Delivered to your driveway or woodpile',
+      'Local wood, so you are not trucking pests in from out of state',
+      'Oak, maple, ash and birch that burn hot and long',
+      'Order ahead for the season or top off mid-winter',
+    ],
+    offerings: [
+      'Seasoned hardwood by the cord',
+      'Half-cord deliveries',
+      'Mixed hardwood (oak, maple, ash, birch)',
+      'Local delivery & drop-off',
+      'Stacking on request',
+      'Early-season bulk orders',
+    ],
+    processSteps: [
+      { title: 'Tell us how you burn', desc: 'Wood stove, fireplace or fire pit — we size the order to how much you actually go through.' },
+      { title: 'We load and deliver', desc: 'Seasoned hardwood loaded and brought to your property on a day that works for you.' },
+      { title: 'Drop or stack', desc: 'We dump it where you want it, or stack the pile for you if you would rather not.' },
+      { title: 'Top off anytime', desc: 'Running low mid-season? Call and we add another load before the next cold stretch.' },
+    ],
+    faqs: [
+      { q: 'What does “seasoned” actually mean?', a: 'It means the wood has been split and air-dried long enough to get its moisture down around 20% or less. Seasoned wood lights easily and burns hot and clean; green wood hisses, smokes and leaves creosote in your chimney.' },
+      { q: 'How much is a cord?', a: 'A full cord is 128 cubic feet — a stack roughly 4 ft high by 4 ft deep by 8 ft long. We also deliver half cords if you burn less or are short on space.' },
+      { q: 'Can you stack it for me?', a: 'Yes. By default we drop the load where you want it, but we can stack the pile for you — just ask when you order.' },
+      { q: 'Why does buying firewood locally matter?', a: 'Moving firewood long distances is how invasive pests like the emerald ash borer and Asian longhorned beetle spread into new areas of Massachusetts. Buying wood cut near where you burn it keeps your trees and your neighbors’ trees safer.' },
     ],
   },
 ];

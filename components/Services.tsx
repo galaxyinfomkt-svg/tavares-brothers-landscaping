@@ -20,12 +20,13 @@ export default function Services() {
           </h2>
           <p className="mt-4 text-cream/70">
             From weekly lawn care to full residential and commercial
-            landscaping, we bring expertise, premium materials, and meticulous
-            craftsmanship to every property.
+            landscaping — plus seasoned firewood delivered to your door — we
+            bring expertise, premium materials, and meticulous craftsmanship to
+            every property.
           </p>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {services.map((service, i) => {
             const Icon = service.icon;
             return (
