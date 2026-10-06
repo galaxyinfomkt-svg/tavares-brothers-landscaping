@@ -135,7 +135,7 @@ export default function CityPage({ params }: Params) {
         />
 
         {/* Hero */}
-        <section className="relative flex min-h-[60vh] items-center overflow-hidden pt-20">
+        <section className="relative flex min-h-[60vh] items-center overflow-hidden pt-28">
           <div className="absolute inset-0">
             <Image
               src={heroImage}

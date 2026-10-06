@@ -30,7 +30,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container-px relative z-10 grid items-center gap-12 pt-28 pb-16 lg:grid-cols-[1.1fr_minmax(380px,460px)] lg:gap-10 lg:pb-20">
+      <div className="container-px relative z-10 grid items-center gap-12 pt-36 pb-16 lg:grid-cols-[1.1fr_minmax(380px,460px)] lg:gap-10 lg:pb-20">
         {/* Left: headline */}
         <div className="max-w-2xl">
           <motion.span

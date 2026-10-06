@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X, Phone, Mail, ChevronDown, ArrowRight } from 'lucide-react';
 import { business, navLinks, services } from '@/lib/content';
+import AnnouncementBar from './AnnouncementBar';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -36,6 +37,8 @@ export default function Header() {
         scrolled ? 'bg-charcoal/90 shadow-lg shadow-black/20' : 'bg-charcoal/75'
       }`}
     >
+      <AnnouncementBar />
+
       {/* Utility bar — email and phone above the nav. Without it the email
           lived only in the footer, which a phone visitor rarely reaches. */}
       <div className="border-b border-white/10 bg-charcoal">

@@ -65,7 +65,7 @@ export default function BlogPostPage({ params }: Params) {
         />
 
         {/* Hero */}
-        <section className="relative flex min-h-[55vh] items-end overflow-hidden pt-20">
+        <section className="relative flex min-h-[55vh] items-end overflow-hidden pt-28">
           <div className="absolute inset-0">
             <Image
               src={post.image}

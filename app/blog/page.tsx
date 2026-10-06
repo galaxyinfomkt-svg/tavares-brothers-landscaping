@@ -37,7 +37,7 @@ export default function BlogIndex() {
       <Header />
       <main>
         {/* Page header */}
-        <section className="bg-charcoal pt-32 pb-16 text-cream sm:pt-36 sm:pb-20">
+        <section className="bg-charcoal pt-40 pb-16 text-cream sm:pt-44 sm:pb-20">
           <div className="container-px max-w-3xl">
             <span className="eyebrow text-sage">The Tavares Brothers Blog</span>
             <h1 className="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">
